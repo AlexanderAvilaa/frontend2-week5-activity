@@ -46,7 +46,7 @@ const Home = () => {
   // 4. Renderizado principal
   return (
     <div className="container">
-      <h2 className="title">Juegos Populares</h2>
+      <h2 className="title">Juegos Populares - App de Alexander Avila</h2>
 
       <div className="games-grid">
         {/* Iteramos sobre el arreglo 'games' */}
