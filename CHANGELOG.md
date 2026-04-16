@@ -1,3 +1,10 @@
+# 1.0.0 (2026-04-16)
+
+
+### Features
+
+* personalizado el titulo de Home ([5e006be](https://github.com/AlexanderAvilaa/frontend2-week5-activity/commit/5e006be109ffbfca38406ee5a140ea4fdab1083f))
+
 # 1.0.0 (2026-04-12)
 
 
