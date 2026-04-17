@@ -57,9 +57,18 @@ jobs:
 
       - name: Construir y empujar imagen de Docker
         run: |
-          # Comando simplificado para evitar errores de argumentos
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend2-week5-activity:${{ needs.release.outputs.new_release_version }} .
-          docker tag ${{ secrets.DOCKER_USERNAME }}/frontend2-week5-activity:${{ needs.release.outputs.new_release_version }} ${{ secrets.DOCKER_USERNAME }}/frontend2-week5-activity:latest
+          # VERSION que viene del bot
+          VERSION=${{ needs.release.outputs.new_release_version }}
           
-          docker push ${{ secrets.DOCKER_USERNAME }}/frontend2-week5-activity:${{ needs.release.outputs.new_release_version }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/frontend2-week5-activity:latest
+          # REPO con tu usuario escrito directamente para evitar errores de variable vacia
+          REPO="fqrewf212f1r/frontend2-week5-activity"
+
+          echo "Construyendo imagen para $REPO en version $VERSION..."
+
+          # Construccion con el punto (.) al final
+          docker build -t $REPO:$VERSION .
+          docker tag $REPO:$VERSION $REPO:latest
+          
+          echo "Subiendo imagenes a Docker Hub..."
+          docker push $REPO:$VERSION
+          docker push $REPO:latest
